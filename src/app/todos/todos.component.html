@@ -1,0 +1,31 @@
+<div class="container">
+  <input type="text" [(ngModel)]="filterByTitle" class="mt-2 mb-2" placeholder="Filter by title" />
+  <table class="table">
+    <thead>
+      <tr>
+        <th>
+          Title
+          <a (click)="sortBy('title', true)" >↑</a>
+          <a (click)="sortBy('title', false)" >↓</a>
+        </th>
+        <th>Description</th>
+        <th>Image</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let item of todos | searchfilter: 'title' : filterByTitle | paginate: { itemsPerPage: 10, currentPage: p }">
+      <td>{{item.title}}</td>
+      <td>{{item.description}}</td>
+      <td>
+        <img *ngIf="item.image" [src]="item.image" height="100" />
+        <i *ngIf="!item.image" >no image</i>
+      </td>
+      <td>
+        <a [routerLink]="" (click)="deleteToDo(item._id)">Delete/</a>
+        <a [routerLink]="['/update-to-do', item._id]">Update</a>
+      </td>
+    </tr>
+  </table>
+
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

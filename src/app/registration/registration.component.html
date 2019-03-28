@@ -1,0 +1,50 @@
+<div class="container">
+  <form [formGroup]="RegForm" (ngSubmit)="onSubmit()">
+
+    <div class="col-md-2">
+      <label>
+        Name:
+        <input type="text" formControlName="name">
+      </label>
+    </div>
+
+    <div class="col-md-2">
+      <label>
+        Surname:
+        <input type="text" formControlName="surname">
+      </label>
+    </div>
+
+    <div class="col-md-2">
+      <label>
+        Email:
+        <input type="email" formControlName="email">
+      </label>
+    </div>
+
+    <div class="col-md-2">
+      <label>
+        Password:
+        <input type="password" formControlName="password">
+      </label>
+    </div>
+
+    <div class="col-md-2">
+      <label>
+        Phone:
+        <input type="tel" formControlName="phone">
+      </label>
+    </div>
+
+    <div class="col-md-2">
+      <button type="submit" [disabled]="!RegForm.valid">Submit</button>
+    </div>
+
+    <div class="" *ngIf="formMessage">
+      {{formMessage}}
+    </div>
+
+
+  </form>
+</div>
+

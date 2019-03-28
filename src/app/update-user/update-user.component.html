@@ -1,0 +1,33 @@
+<div class="container">
+  <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+
+
+    <div class="col-md-6">
+      <label>
+        Username:
+        <input type="text" formControlName="name">
+      </label>
+    </div>
+
+    <div class="col-md-6">
+      <label>
+        Password:
+        <input type="password" formControlName="password">
+      </label>
+    </div>
+
+
+    <div class="col-md-6">
+      <button type="submit" [disabled]="!updateForm.valid">Update</button>
+    </div>
+
+    <div class="" *ngIf="formMessage">
+      {{formMessage}}
+    </div>
+
+  </form>
+
+</div>
+
+
+
